@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow is a simple and modern task management application.">
+    <title>TaskFlow | Smart Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">T</div>
+                <span>TaskFlow</span>
+            </div>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="navigation" aria-label="Task filters">
+                <button class="nav-item active" data-filter="all">
+                    <span>▦</span> All Tasks
+                    <span class="nav-count" id="allCount">0</span>
+                </button>
+
+                <button class="nav-item" data-filter="active">
+                    <span>◷</span> Active
+                    <span class="nav-count" id="activeCount">0</span>
+                </button>
+
+                <button class="nav-item" data-filter="completed">
+                    <span>✓</span> Completed
+                    <span class="nav-count" id="completedCount">0</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="mini-card">
+                    <div class="mini-icon">✦</div>
+                    <h3>Stay productive</h3>
+                    <p>Small steps every day lead to big results.</p>
+                </div>
+                <p class="sidebar-footer">TASKFLOW © 2026</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR WORKSPACE</p>
+                    <h1>My Tasks<span>.</span></h1>
+                    <p class="subtitle" id="currentDate">Organize your day, one task at a time.</p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">T</div>
+                </div>
+            </header>
+
+            <section class="stats-grid" aria-label="Task statistics">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Tasks</span>
+                        <span class="stat-symbol purple">▦</span>
+                    </div>
+                    <h2 id="totalStat">0</h2>
+                    <p>All your tasks</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>In Progress</span>
+                        <span class="stat-symbol orange">◷</span>
+                    </div>
+                    <h2 id="activeStat">0</h2>
+                    <p>Tasks to complete</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Completed</span>
+                        <span class="stat-symbol green">✓</span>
+                    </div>
+                    <h2 id="completedStat">0</h2>
+                    <p>Tasks finished</p>
+                </div>
+            </section>
+
+            <section class="progress-card">
+                <div class="progress-info">
+                    <div>
+                        <h3>Daily progress</h3>
+                        <p>Keep moving forward!</p>
+                    </div>
+                    <strong id="progressPercent">0%</strong>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </section>
+
+            <section class="task-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>My Task List</h2>
+                        <p>Manage your daily activities</p>
+                    </div>
+                    <button class="clear-btn" id="clearCompletedBtn">Clear completed</button>
+                </div>
+
+                <form class="add-task-form" id="taskForm">
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="What needs to be done?"
+                        maxlength="100"
+                        autocomplete="off"
+                        aria-label="Enter a new task"
+                    >
+                    <button type="submit" class="add-btn">＋ Add Task</button>
+                </form>
+
+                <div class="task-toolbar">
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <label class="search-box">
+                        <span>⌕</span>
+                        <input type="search" id="searchInput" placeholder="Search tasks..." aria-label="Search tasks">
+                    </label>
+                </div>
+
+                <div class="task-list" id="taskList" aria-live="polite"></div>
+
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">✦</div>
+                    <h3 id="emptyTitle">Nothing here yet</h3>
+                    <p id="emptyMessage">Add your first task and get started!</p>
+                </div>
+
+                <div class="list-footer">
+                    <span id="taskSummary">0 tasks</span>
+                    <span>Saved automatically <span class="saved-dot"></span></span>
+                </div>
+            </section>
+
+            <footer class="footer">
+                Made with focus and creativity <span>♥</span> by TaskFlow
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
